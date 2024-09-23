@@ -102,8 +102,8 @@ float snoise(vec3 v){
         vUv = uv;
   
         vec3 pos = position;
-        float noiseFreq = 2.0;
-        float noiseAmp = 0.4;
+        float noiseFreq = 1.0;
+        float noiseAmp = 0.1;
         vec3 noisePos = vec3(pos.x * noiseFreq + uTime, pos.y, pos.z);
         pos.z += snoise(noisePos) * noiseAmp;
         vWave = pos.z;
@@ -164,17 +164,17 @@ export function Textile() {
   return (
     <e.group theatreKey="texture_group">
         <e.mesh theatreKey="texture3" position={[0,0,-0.4]}>
-            <boxGeometry args={[4, 6, 0.05]} />
+            <boxGeometry args={[4, 6, 0.05, 10, 10, 10]} />
             {/* @ts-ignore */}
             <waveShaderMaterial ref={ref} uTexture={netTexture} uColor={'grey'} />
         </e.mesh>
         <e.mesh theatreKey="texture2" position={[0,0,-0.2]}>
-            <boxGeometry args={[4, 6, 0.05]} />
+            <boxGeometry args={[4, 6, 0.05, 10, 10, 10]} />
             {/* @ts-ignore */}
             <waveShaderMaterial ref={ref2} uTexture={gridTexture} uColor={'white'} />
         </e.mesh>
         <e.mesh theatreKey="texture">
-            <boxGeometry args={[4, 6, 0.05]} />
+            <boxGeometry args={[4, 6, 0.05, 10, 10, 10]} />
             {/* @ts-ignore */}
             <waveShaderMaterial ref={ref3} uTexture={texture} />
         </e.mesh>
