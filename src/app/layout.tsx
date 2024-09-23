@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Scene } from "@/components/canvas/Scene";
+import { LenisWrapper } from "@/components/LenisWrapper";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <LenisWrapper >
+          <Scene />
+          {children}
+        </LenisWrapper>
       </body>
     </html>
   );
